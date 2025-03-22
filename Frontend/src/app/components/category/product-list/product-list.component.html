@@ -1,0 +1,72 @@
+<div class="min-h-screen bg-gradient-to-b from-pink-50 to-white">
+  <app-header></app-header>
+  <app-nav></app-nav>
+  
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-pink-600 mb-4">Nuestros Productos</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Descubre nuestra selección de productos de alta calidad para tu mascota. 
+        Tenemos todo lo que necesitas para mantener a tu compañero feliz y saludable.
+      </p>
+    </div>
+
+    <div class="mb-8">
+      <div class="max-w-xl mx-auto relative">
+        <input
+          type="text"
+          placeholder="Buscar productos..."
+          class="w-full pl-10 pr-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+        >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          class="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
+          />
+        </svg>
+      </div>
+    </div>
+
+    
+    <div *ngIf="products.length > 0; else noProducts" 
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <app-product-card 
+        *ngFor="let product of products" 
+        [productDetail]="product"
+      ></app-product-card>
+    </div>
+
+    
+    <ng-template #noProducts>
+      <div class="text-center py-12 bg-white rounded-lg shadow-sm">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg"
+          class="mx-auto h-12 w-12 text-gray-400 mb-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path 
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M20 12H4"
+          />
+        </svg>
+        <p class="text-gray-500 text-lg">
+          No hay productos disponibles en esta categoría.
+        </p>
+      </div>
+    </ng-template>
+  </main>
+
+  <app-footer></app-footer>
+</div>

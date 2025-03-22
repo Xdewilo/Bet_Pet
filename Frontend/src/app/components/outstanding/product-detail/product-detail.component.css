@@ -1,0 +1,40 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  
+  .btn-outline {
+    border: 2px solid #e91e63;
+    background-color: transparent;
+    color: #e91e63;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: #fce4ec;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  input[type="number"] {
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    width: 60px;
+    border: 2px solid #ccc;
+  }
+  
+  .mat-icon{
+    color: rgb(240, 19, 130);
+  }

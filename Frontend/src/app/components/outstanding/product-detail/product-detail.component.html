@@ -1,0 +1,129 @@
+<div class="min-h-screen bg-gray-50">
+    <app-header></app-header>
+    <app-nav></app-nav>
+    <app-notification></app-notification>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <div class="container mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+   
+        <div class="space-y-4">
+          <div class="relative aspect-square overflow-hidden rounded-xl border bg-muted">
+            <img
+              [src]="product.image"
+              [alt]="product.name"
+              class="object-cover w-full h-full"
+            />
+          </div>
+          
+        
+          <div class="space-y-4">
+            <h2 class="text-xl font-semibold">Detalles del producto</h2>
+            <div class="space-y-2">
+              <div class="flex justify-between border-b py-2">
+                <span class="font-medium">Presentación</span>
+                <span>{{ product.detail }}</span>
+              </div>
+              <div class="flex justify-between border-b py-2">
+                <span class="font-medium">Tipo</span>
+                <span>perro</span>
+              </div>
+            </div>
+          </div>
+        </div>
+            <div class="space-y-6">
+          <div class="space-y-2">
+            <h1 class="text-3xl font-bold tracking-tight text-pink-600">{{ product.name }}</h1>
+            <p class="text-gray-500">{{ product.description }}</p>
+          </div>
+    
+          <div class="flex items-center gap-4">
+            <span class="text-3xl font-bold">${{ product.price }}</span>
+            <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded">En stock  {{product.stock}}</span>
+          </div>
+    
+          <div class="bg-white rounded-lg shadow p-4">
+            <div class="space-y-4">
+              <div class="space-y-2">
+                <label for="quantity" class="text-sm font-medium leading-none">
+                  Cantidad
+                </label>
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    (click)="actualizarCantidad(-1)"
+                    class="h-8 w-8 rounded-md border border-gray-200 flex items-center justify-center"
+                  >
+                    <mat-icon>remove</mat-icon>
+                  </button>
+                  <input
+                    id="quantity"
+                    type="number"
+                    min="1"
+                    [(ngModel)]="quantity"
+                    class="w-16 text-center border rounded-md p-1"
+                  />
+                  <button
+                    type="button"
+                    (click)="actualizarCantidad(1)"
+                    class="h-8 w-8 rounded-md border border-gray-200 flex items-center justify-center"
+                  >
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+    
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span>Subtotal:</span>
+                  <span>${{ (product.price * quantity).toFixed(2) }}</span>
+                </div>
+                <div class="flex justify-between text-green-600">
+                  <span>Envío:</span>
+                  <span>Gratis</span>
+                </div>
+                <div class="flex justify-between font-bold border-t pt-2">
+                  <span>Total:</span>
+                  <span>${{ (product.price * quantity).toFixed(2) }}</span>
+                </div>
+              </div>
+    
+              <div class="space-y-2">
+                <button class="w-full bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded-lg">
+                  Comprar ahora
+                </button>
+                <button 
+                  (click)="addToCart()"
+                  class="w-full border border-gray-200 hover:bg-gray-50 px-4 py-2 rounded-lg flex items-center justify-center">
+                  <mat-icon class="mr-2">shopping_cart</mat-icon>
+                  Agregar al carrito
+                </button>
+                <button 
+                  (click)="toggleFavorite()"
+                  class="w-full text-gray-600 hover:bg-gray-50 px-4 py-2 rounded-lg flex items-center justify-center">
+                  <svg
+                  [class.text-pink-600]="isFavorite" 
+                  [class.text-gray-400]="!isFavorite"
+                  [attr.fill]="isFavorite ? 'currentColor' : 'none'" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  class="h-6 w-6 transition-colors duration-300"
+                  viewBox="0 0 24 24">
+                  <path 
+                    [attr.fill]="isFavorite ? 'currentColor' : 'none'"
+                    stroke="currentColor" 
+                    stroke-linecap="round" 
+                    stroke-linejoin="round" 
+                    stroke-width="2" 
+                    d="M11.998 21.35l-1.453-1.32C5.4 15.364 2 12.279 2 8.505c0-3.134 2.404-5.505 5.502-5.505 1.872 0 3.702 1.09 4.498 2.798 0.797-1.708 2.627-2.798 4.498-2.798 3.098 0 5.502 2.371 5.502 5.505 0 3.774-3.4 6.859-8.545 11.524L11.998 21.35z" 
+                  />
+                </svg>
+                  Agregar a favoritos
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>

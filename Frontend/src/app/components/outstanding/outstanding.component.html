@@ -1,0 +1,76 @@
+<section class="py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="space-y-2 text-center mb-8">
+      <h2 class="text-3xl font-bold tracking-tighter text-[#E91E63]">
+        Productos Destacados
+      </h2>
+      <p class="mx-auto max-w-[700px] text-black md:text-lg">
+        Descubre nuestra selección especial de productos premium para tu mascota
+      </p>
+    </div>
+
+    <div
+      *ngIf="products.length > 0; else noProducts"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+    >
+      <div
+        *ngFor="let product of products"
+        class="overflow-hidden hover:shadow-lg transition-shadow duration-300 rounded-lg border bg-white"
+      >
+      <div class="max-w-xs w-full mx-auto bg-white border rounded-lg shadow hover:shadow-lg transition-shadow duration-300 group">
+          <!-- Contenedor de imagen con tamaño fijo -->
+          <div class="relative">
+            <div class="aspect-square relative overflow-hidden w-full">
+              <img
+                [src]="product.image"
+                [alt]="product.name"
+                class="rounded-t-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </div>
+
+          <!-- Contenido de la tarjeta -->
+          <div class="p-4 h-64 flex flex-col">
+            <!-- Título -->
+            <h3
+              class="font-semibold text-lg mb-2 h-14 overflow-hidden relative"
+            >
+              {{ product.name }}
+              <div
+                class="absolute bottom-0 right-0 bg-gradient-to-l from-white to-transparent w-12 h-7"
+              ></div>
+            </h3>
+
+            <!-- Precio -->
+            <div class="mb-3">
+              <span class="text-2xl font-bold text-pink-600">
+                ${{ product.price.toFixed(2) }}
+              </span>
+            </div>
+
+            <!-- Descripción -->
+            <div class="relative mb-4 flex-grow">
+              <p class="text-sm text-gray-600 line-clamp-2">
+                {{ product.description }}
+              </p>
+            </div>
+
+            <!-- Botón Ver Detalles -->
+            <div>
+              <a
+                [routerLink]="['/product', product.id]"
+                class="w-full bg-pink-600 hover:bg-pink-700 text-white px-4 py-2 rounded text-center block"
+              >
+                Ver Detalles
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noProducts>
+      <p class="text-center text-gray-600">No hay productos disponibles en este momento.</p>
+    </ng-template>
+  </div>
+</section>

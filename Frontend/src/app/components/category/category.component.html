@@ -1,0 +1,133 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<section class="py-2">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-3xl font-bold tracking-tighter text-[#E91E63] text-center">Categorías</h2>
+    <p class="text-center text-black mt-4 max-w-2xl mx-auto">
+      Descubre un mundo de posibilidades para consentir a tu mejor amigo. 
+      Cada categoría está diseñada para hacer feliz a tu mascota y facilitar tu vida.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 my-8">
+
+      
+      <!-- Card 1: Alim. Húmedos -->
+      <a [routerLink]="['/category', 1]" 
+         class="bg-pink-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-pink-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-pink-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-pink-500" style="font-size: 25px;">restaurant</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Alim. Húmedos</h3>
+          <p class="text-gray-600">Perros</p>
+        </div>
+      </a>
+
+      <!-- Card 2: Alim. Secos -->
+      <a [routerLink]="['/category', 2]" 
+         class="bg-blue-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-blue-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-blue-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-blue-500" style="font-size: 25px;">shopping_bag</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Alim. Secos</h3>
+          <p class="text-gray-600">Perros</p>
+        </div>
+      </a>
+
+      <!-- Card 3: Snacks -->
+      <a [routerLink]="['/category', 3]" 
+         class="bg-pink-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-pink-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-pink-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-pink-500" style="font-size: 25px;">cake</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Snacks</h3>
+          <p class="text-gray-600">Gatos</p>
+        </div>
+      </a>
+
+      <!-- Card 4: Transporte -->
+      <a [routerLink]="['/category', 4]" 
+         class="bg-blue-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-blue-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-blue-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-blue-500" style="font-size: 25px;">local_shipping</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Transporte</h3>
+          <p class="text-gray-600">Perros</p>
+        </div>
+      </a>
+
+      <!-- Card 5: Suplementos -->
+      <a [routerLink]="['/category', 5]" 
+         class="bg-pink-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-pink-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-pink-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-pink-500" style="font-size: 25px;">science</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Suplementos</h3>
+          <p class="text-gray-600">Gatos</p>
+        </div>
+      </a>
+
+      <!-- Card 6: Salud -->
+      <a [routerLink]="['/category', 6]" 
+         class="bg-blue-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-blue-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-blue-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-blue-500" style="font-size: 25px;">medical_services</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Salud</h3>
+          <p class="text-gray-600">Perros</p>
+        </div>
+      </a>
+
+      <!-- Card 7: Juguetes -->
+      <a [routerLink]="['/category', 7]" 
+         class="bg-pink-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-pink-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-pink-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-pink-500" style="font-size: 25px;">sports_esports</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Juguetes</h3>
+          <p class="text-gray-600">Gatos</p>
+        </div>
+      </a>
+
+      <!-- Card 8: Perfumes -->
+      <a [routerLink]="['/category', 8]" 
+         class="bg-blue-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-blue-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-blue-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-blue-500" style="font-size: 25px;">spa</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Perfumes</h3>
+          <p class="text-gray-600">Gatos</p>
+        </div>
+      </a>
+
+      <!-- Card 9: Sanitarios -->
+      <a [routerLink]="['/category', 9]" 
+         class="bg-pink-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-pink-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-pink-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-pink-500" style="font-size: 25px;">sanitizer</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Sanitarios</h3>
+          <p class="text-gray-600">Gatos</p>
+        </div>
+      </a>
+
+      <!-- Card 10: Juguetes Perros -->
+      <a [routerLink]="['/category', 10]" 
+         class="bg-blue-300 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:ring-2 hover:ring-blue-500">
+        <div class="p-6 rounded-lg">
+          <div class="bg-blue-200 rounded-full w-20 h-20 flex items-center justify-center mb-4">
+            <mat-icon class="text-blue-500" style="font-size: 25px;">sports_esports</mat-icon>
+          </div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Juguetes</h3>
+          <p class="text-gray-600">Perros</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

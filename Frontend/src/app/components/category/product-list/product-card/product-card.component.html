@@ -1,0 +1,111 @@
+<div class="max-w-xs w-full mx-auto bg-white border rounded-lg shadow hover:shadow-lg transition-shadow duration-300 group">
+  <!-- Contenedor de imagen con tamaño fijo -->
+  <div class="relative">
+    <div class="aspect-square relative overflow-hidden w-full">
+      <img
+        [src]="productDetail.image"
+        [alt]="productDetail.name"
+        class="rounded-t-lg object-cover w-full h-full transform transition-transform duration-300 group-hover:scale-105"
+      />
+    </div>
+
+    <!-- Botón de favoritos -->
+    <button 
+      (click)="toggleFavorite()" 
+      class="absolute top-3 right-3 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-all">
+      <svg
+        [class.text-pink-600]="isFavorite" 
+        [class.text-gray-400]="!isFavorite"
+        [attr.fill]="isFavorite ? 'currentColor' : 'none'" 
+        xmlns="http://www.w3.org/2000/svg" 
+        class="h-6 w-6 transition-colors duration-300"
+        viewBox="0 0 24 24">
+        <path 
+          [attr.fill]="isFavorite ? 'currentColor' : 'none'"
+          stroke="currentColor" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M11.998 21.35l-1.453-1.32C5.4 15.364 2 12.279 2 8.505c0-3.134 2.404-5.505 5.502-5.505 1.872 0 3.702 1.09 4.498 2.798 0.797-1.708 2.627-2.798 4.498-2.798 3.098 0 5.502 2.371 5.502 5.505 0 3.774-3.4 6.859-8.545 11.524L11.998 21.35z" 
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Contenido de la tarjeta con altura fija -->
+  <div class="p-4 h-64 flex flex-col">
+    <!-- Título con truncamiento -->
+    <h3 class="font-semibold text-lg mb-2 h-14 overflow-hidden relative">
+      {{ productDetail.name }}
+      <div class="absolute bottom-0 right-0 bg-gradient-to-l from-white to-transparent w-12 h-7"></div>
+    </h3>
+
+    <!-- Precio -->
+    <div class="mb-3">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl font-bold text-pink-600">
+          ${{ productDetail.price.toFixed(2) }}
+        </span>
+        <span *ngIf="productDetail.price" 
+              class="text-sm text-gray-500 line-through">
+          ${{ getPrice().toFixed(2) }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Descripción con truncamiento y botón "Ver más" -->
+    <div class="relative mb-4 flex-grow">
+      <p class="text-sm text-gray-600 line-clamp-2">
+        {{ productDetail.description }}
+      </p>
+      <button 
+        *ngIf="productDetail.description.length > 100"
+        (click)="toggleDescription()"
+        class="text-pink-600 text-sm hover:text-pink-700 focus:outline-none">
+        {{ showFullDescription ? 'Ver menos' : 'Ver más...' }}
+      </button>
+    </div>
+
+    <!-- Controles de cantidad y botón de agregar al carrito -->
+    <div class="mt-auto">
+      <div class="flex items-center justify-between gap-4 mb-4">
+        <div class="flex items-center border rounded-lg">
+          <button 
+            (click)="decreaseQuantity()" 
+            class="h-8 w-8 border-r flex items-center justify-center hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            [disabled]="quantity <= 1">
+            <span class="transform translate-y-[-1px]">−</span>
+          </button>
+          <span class="w-8 text-center font-medium">{{ quantity }}</span>
+          <button 
+            (click)="increaseQuantity()" 
+            class="h-8 w-8 border-l flex items-center justify-center hover:bg-gray-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            [disabled]="quantity >= productDetail.stock">
+            <span class="transform translate-y-[-1px]">+</span>
+          </button>
+        </div>
+        <span class="text-sm text-gray-500">
+          {{ productDetail.stock }} disponibles
+        </span>
+      </div>
+
+      <button 
+        (click)="addToCart()"
+        class="w-full bg-pink-600 text-white py-2 rounded-lg hover:bg-pink-700 transition-colors duration-300 flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+             class="h-4 w-4" 
+             fill="none" 
+             viewBox="0 0 24 24" 
+             stroke="currentColor">
+          <path stroke-linecap="round" 
+                stroke-linejoin="round" 
+                stroke-width="2" 
+                d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+        </svg>
+        Agregar al carrito
+      </button>
+    </div>
+  </div>
+</div>
+
+<app-notification></app-notification>
